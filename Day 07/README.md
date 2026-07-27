@@ -1,32 +1,46 @@
-import pandas as pd
+# Student Performance Dashboard
 
-df = pd.read_csv("cleaned_student_performance.csv")
+## Project Overview
 
-subjects = ["Math","Science","English","Attendance"]
+This project performs data cleaning and visualization on a student performance dataset using Pandas, Matplotlib, and Seaborn.
 
-print("="*50)
-print("      STUDENT PERFORMANCE DASHBOARD")
-print("="*50)
+---
 
-# Total Students
-print("\nTotal Students:", len(df))
+## Data Cleaning Steps
 
-# Average score of every subject
-print("\nAverage Score Per Subject")
-print(df[subjects].mean())
+- Loaded CSV file using Pandas
+- Checked missing values
+- Filled missing values
+- Removed duplicate records
+- Renamed columns
+- Converted data types
+- Created Average_Score column
+- Created Performance column
+- Saved cleaned_student_performance.csv
 
-# Top 5 Students
-print("\nTop 5 Students")
-top5 = df.sort_values(by="Average_Score", ascending=False)
-print(top5[["Name","Average_Score"]].head())
+---
 
-# Students Needing Improvement
-print("\nStudents Needing Improvement")
-need = df[df["Performance"]=="Needs Improvement"]
-print(need[["Name","Average_Score","Performance"]])
+## Visualizations Created
 
-# Highest Average Subject
-print("\nSubject With Highest Average")
-print(df[subjects].mean().idxmax())
+1. Bar Chart – Average Score per Student
+2. Histogram – Average Score Distribution
+3. Scatter Plot – Math vs Science
+4. Pie Chart – Performance Categories
+5. Box Plot – Marks Distribution
 
-print("\nDashboard Completed Successfully!")
+---
+
+## Key Insights
+
+1. Most students scored between 75 and 90.
+2. Math and Science scores have a positive relationship.
+3. Excellent students achieved an average score above 90.
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
