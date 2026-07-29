@@ -15,7 +15,11 @@ st.set_page_config(
 # ----------------------------------------------------
 # Load Trained Model
 # ----------------------------------------------------
-with open("model.pkl", "rb") as file:
+from pathlib import Path
+
+MODEL_PATH = Path(__file__).parent / "model.pkl"
+
+with open(MODEL_PATH, "rb") as file:
     model = pickle.load(file)
 
 # Load Iris Dataset (Only for labels and preview)
