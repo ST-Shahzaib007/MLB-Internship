@@ -20,6 +20,7 @@ confusion_matrix
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pickle
 
 # ========= Loading Dataset ==========
 iris = load_iris()
@@ -91,6 +92,11 @@ for i in range(10):
         f"Predicted = {iris.target_names[y_predict[i]]}, "
         f"Actual = {iris.target_names[y_test[i]]}"
     )
+    # Save the trained model
+with open("model.pkl", "wb") as file:
+    pickle.dump(model, file)
+
+print("Model saved successfully!")
 
 
 
@@ -105,4 +111,6 @@ plt.ylabel ("Actual Label")
 plt.title("Confusion Matrix")
 plt.show()
 print("Confusion Matrix plotted successfully... !")
+
+
 
